@@ -15,6 +15,11 @@ class ContactsController < ApplicationController
     @contacts = Contact.all 
   end
 
+  def show
+    contact_id = params[:id]
+    @contact = Contact.find_by(id: contact_id)
+  end
+
   def new
   end
 
@@ -26,11 +31,9 @@ class ContactsController < ApplicationController
                           email: params[:email]
                           )
     contact.save
+    flash[:success] = "Contact Succefully Created"
+    redirect_to "/contacts/#{ contact.id}"
 
-  end
-
-  def show
-    @contact = Contact.find(params[:id])
   end
 
   def edit
@@ -46,10 +49,14 @@ class ContactsController < ApplicationController
                             phone_number: params[:phone_number]
                             )
     contact.save 
+    flash[:success] = "Contact Updated"
+    redirect_to "/contacts/#{ contact.id}"
   end
   
   def destroy
     contact = contact.find(params[:id])
     contact.destroy
+    flash[:warning] = "Contact Unfriended"
+    redirect_to "/"
   end 
 end
