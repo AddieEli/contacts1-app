@@ -1,0 +1,17 @@
+<h1> You made a friend? </h1>
+
+<%= form_tag "/contacts", method: :post do %>
+  <div>
+     First_Name: <input type="text" name="first_name" >
+ </div>
+  <div>
+     Last_Name: <input type="text" name="last_name" >
+  </div>
+  <div>
+     Phone_Number: <input type="text" name="phone_number">
+  </div>
+  <div>
+    Email: <input type="text" name="email">
+  <input type="submit" value="New Friend!">
+
+  <% end %>
