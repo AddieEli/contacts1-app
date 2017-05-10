@@ -9,17 +9,8 @@
   </head>
 
   <body>
-  <div class="container">
-      <% flash.each do |name, message| %>
-        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= message %>
-        </div>
-      <% end %>
-
       <a href="/">Home</a>
       <a href="/contacts/new">New Contact</a>
-      <%= yield %>
     </div>
 <a href="/contacts/">HOME</a> 
 <nav class="navbar navbar-default">
@@ -77,5 +68,13 @@
 </nav>
 
     <%= yield %>
+      <div class="container">
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+
   </body>
 </html>
