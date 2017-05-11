@@ -27,8 +27,10 @@ class ContactsController < ApplicationController
     contact = Contact.new(
                           first_name: params[:first_name],
                           last_name: params[:last_name],
+                          middle_name: params[:middle_name],
                           phone_number: params[:phone_number],
-                          email: params[:email]
+                          email: params[:email],
+                          bio: params[:bio]
                           )
     contact.save
     flash[:success] = "Contact Succefully Created"
@@ -45,8 +47,10 @@ class ContactsController < ApplicationController
     contact.assign_attributes(
                             first_name: params[:first_name],
                             last_name: params[:last_name],
+                            middle_name: params[:middle_name],
                             email: params[:email],
-                            phone_number: params[:phone_number]
+                            phone_number: params[:phone_number],
+                            bio: params[:bio]
                             )
     contact.save 
     flash[:success] = "Contact Updated"
